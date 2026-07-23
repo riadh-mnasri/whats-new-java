@@ -11,6 +11,7 @@ import {
 } from "@/content/java-versions";
 import { CodeBlock } from "@/components/code-block";
 import { ExploredToggle } from "@/components/explored-toggle";
+import { Reveal } from "@/components/reveal";
 
 type Props = {
   params: Promise<{ locale: string; version: string }>;
@@ -67,9 +68,9 @@ export default async function VersionDetailPage({ params }: Props) {
         <span aria-hidden="true">←</span> {t("backToTimeline")}
       </Link>
 
-      <header className="mt-4 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 shadow-sm sm:p-6">
+      <header className="mt-4 rounded-2xl border border-[var(--border)] bg-gradient-to-br from-[var(--surface)] to-[var(--accent)]/10 p-5 shadow-md sm:p-6">
         <div className="flex flex-wrap items-center gap-2">
-          <h1 className="text-2xl font-bold text-[var(--foreground)] sm:text-3xl">
+          <h1 className="font-display text-2xl font-semibold text-[var(--foreground)] sm:text-3xl">
             Java {entry.version}
           </h1>
           {entry.isLts && (
@@ -88,22 +89,21 @@ export default async function VersionDetailPage({ params }: Props) {
       </header>
 
       <section className="mt-6 space-y-4">
-        <h2 className="text-lg font-semibold text-[var(--foreground)]">
+        <h2 className="font-display text-lg font-semibold text-[var(--foreground)]">
           {t("highlightsTitle")}
         </h2>
         {entry.highlights.map((highlight, index) => (
-          <article
-            key={index}
-            className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 shadow-sm sm:p-5"
-          >
-            <h3 className="font-semibold text-[var(--foreground)]">
-              {highlight.title[loc]}
-            </h3>
-            <p className="mt-2 text-sm leading-relaxed text-[var(--foreground)]/80">
-              {highlight.description[loc]}
-            </p>
-            {highlight.code && <CodeBlock code={highlight.code} />}
-          </article>
+          <Reveal key={index} delay={index * 60}>
+            <article className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4 shadow-sm transition-shadow duration-200 hover:shadow-md sm:p-5">
+              <h3 className="font-display font-semibold text-[var(--foreground)]">
+                {highlight.title[loc]}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-[var(--foreground)]/80">
+                {highlight.description[loc]}
+              </p>
+              {highlight.code && <CodeBlock code={highlight.code} />}
+            </article>
+          </Reveal>
         ))}
       </section>
 

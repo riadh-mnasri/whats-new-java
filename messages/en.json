@@ -11,7 +11,23 @@
     "title": "What's New in Java",
     "subtitle": "A timeline of language changes, from Java 8 all the way to Java 25.",
     "timelineHint": "Tap a version to explore what's new in it.",
-    "ltsFilterLabel": "LTS only"
+    "ltsFilterLabel": "LTS only",
+    "eras": {
+      "today": "Today",
+      "cloudEra": "Cloud and concurrency era",
+      "modernization": "Modernization",
+      "foundations": "Foundations"
+    },
+    "milestone": {
+      "start": "Start exploring",
+      "progress": "Nice pace",
+      "halfway": "Past the halfway point",
+      "complete": "Fully explored"
+    },
+    "stats": {
+      "explored": "{explored}/{total} versions explored",
+      "ltsCount": "{count} of them are LTS releases"
+    }
   },
   "progress": {
     "label": "{explored, plural, =0 {No version explored yet} other {{explored}/{total} versions explored}}"
@@ -29,7 +45,10 @@
     "nextVersion": "Java {version}",
     "notFoundTitle": "Version not found",
     "notFoundDescription": "This Java version does not exist in the catalog.",
-    "backHome": "Back home"
+    "backHome": "Back home",
+    "highlightCount": "{count, plural, one {# highlight} other {# highlights}}",
+    "copy": "Copy",
+    "copied": "Copied"
   },
   "footer": {
     "copyright": "© {year} Riadh MNASRI",

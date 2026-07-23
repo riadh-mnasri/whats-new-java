@@ -5,9 +5,11 @@ const STORAGE_KEY = "whats-new-java:explored-versions";
 
 type Listener = () => void;
 
+const EMPTY_SNAPSHOT: number[] = [];
+
 class ExploredStore {
   private explored: Set<number> = new Set();
-  private snapshot: number[] = [];
+  private snapshot: number[] = EMPTY_SNAPSHOT;
   private listeners: Set<Listener> = new Set();
   private initialized = false;
 
@@ -66,7 +68,7 @@ class ExploredStore {
   };
 
   getServerSnapshot = (): number[] => {
-    return [];
+    return EMPTY_SNAPSHOT;
   };
 
   toggle = (version: number): void => {

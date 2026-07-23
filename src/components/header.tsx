@@ -15,7 +15,7 @@ export async function Header() {
           className="flex min-w-0 items-center gap-2 font-semibold text-[var(--foreground)]"
         >
           <CoffeeIcon className="h-6 w-6 shrink-0 text-[var(--accent)]" />
-          <span className="truncate text-sm sm:text-base">{t("brand")}</span>
+          <span className="font-display truncate text-sm sm:text-base">{t("brand")}</span>
         </Link>
         <div className="flex shrink-0 items-center gap-2">
           <ProgressBadge />

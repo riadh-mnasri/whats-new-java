@@ -33,6 +33,7 @@
   --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-serif);
 }
 
 html {
@@ -41,10 +42,28 @@ html {
 
 body {
   background:
-    radial-gradient(ellipse 80% 50% at 50% -10%, color-mix(in srgb, var(--accent) 12%, transparent), transparent),
+    radial-gradient(ellipse 80% 50% at 50% -10%, color-mix(in srgb, var(--accent) 14%, transparent), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 100%, color-mix(in srgb, var(--accent-strong) 8%, transparent), transparent),
     var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  position: relative;
+}
+
+/* Grain discret pour casser la platitude des aplats de couleur. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.35;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+}
+
+.font-display {
+  font-family: var(--font-serif), Georgia, serif;
 }
 
 /* Bloc de code Java, avec une coloration simple des mots-cles. */
@@ -52,7 +71,6 @@ body {
   background: color-mix(in srgb, var(--foreground) 5%, var(--surface));
   border: 1px solid var(--border);
   border-radius: 0.75rem;
-  overflow-x: auto;
 }
 
 .java-code-block code {
@@ -68,9 +86,31 @@ body {
   color: #4d7a34;
 }
 
+.java-type {
+  color: #2f6f8f;
+  font-weight: 500;
+}
+
+.java-annotation {
+  color: #8a5cb8;
+}
+
+.java-number {
+  color: #b5651d;
+}
+
 @media (prefers-color-scheme: dark) {
   .java-string {
     color: #9ecb7d;
+  }
+  .java-type {
+    color: #7ec2e8;
+  }
+  .java-annotation {
+    color: #c9a3ec;
+  }
+  .java-number {
+    color: #e2954f;
   }
 }
 
@@ -87,4 +127,79 @@ body {
 .java-code-block::-webkit-scrollbar-thumb {
   background: color-mix(in srgb, var(--accent) 40%, transparent);
   border-radius: 999px;
+}
+
+/* Wisps de vapeur du logo tasse, discretes et en boucle lente. */
+.steam-wisp {
+  transform-origin: bottom center;
+  animation: steam-drift 3.4s ease-in-out infinite;
+}
+
+.steam-wisp:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+@keyframes steam-drift {
+  0%,
+  100% {
+    transform: translateY(0) scaleY(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translateY(-1.5px) scaleY(1.08);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .steam-wisp {
+    animation: none;
+  }
+}
+
+/*
+ * Apparition douce au defilement, pilotee par IntersectionObserver (voir components/reveal.tsx).
+ * N'importe que si la classe "js" est posee sur <html> (voir layout), pour que le contenu
+ * reste visible par defaut si le script ne s'execute pas.
+ */
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+html.js .reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Petit rebond de satisfaction quand on marque une version comme exploree. */
+@keyframes pop-in {
+  0% {
+    transform: scale(0.75);
+  }
+  55% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pop-in {
+  animation: pop-in 0.32s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pop-in {
+    animation: none;
+  }
 }

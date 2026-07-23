@@ -11,7 +11,23 @@
     "title": "Quoi de neuf en Java",
     "subtitle": "Une frise chronologique des nouveautes du langage, de Java 8 a Java 25.",
     "timelineHint": "Touchez une version pour explorer ses nouveautes.",
-    "ltsFilterLabel": "LTS uniquement"
+    "ltsFilterLabel": "LTS uniquement",
+    "eras": {
+      "today": "Aujourd'hui",
+      "cloudEra": "Ere du cloud et de la concurrence",
+      "modernization": "Modernisation",
+      "foundations": "Fondations"
+    },
+    "milestone": {
+      "start": "A explorer",
+      "progress": "Bon rythme",
+      "halfway": "Plus de la moitie",
+      "complete": "Tout explore"
+    },
+    "stats": {
+      "explored": "{explored}/{total} versions explorees",
+      "ltsCount": "Dont {count} versions LTS"
+    }
   },
   "progress": {
     "label": "{explored, plural, =0 {Aucune version exploree} other {{explored}/{total} versions explorees}}"
@@ -29,7 +45,10 @@
     "nextVersion": "Java {version}",
     "notFoundTitle": "Version introuvable",
     "notFoundDescription": "Cette version de Java n'existe pas dans le catalogue.",
-    "backHome": "Retour a l'accueil"
+    "backHome": "Retour a l'accueil",
+    "highlightCount": "{count, plural, one {# nouveaute} other {# nouveautes}}",
+    "copy": "Copier",
+    "copied": "Copie"
   },
   "footer": {
     "copyright": "© {year} Riadh MNASRI",
