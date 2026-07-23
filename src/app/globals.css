@@ -1,26 +1,90 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Palette "espresso du matin" : cremes chauds, bruns profonds, accent cuivre/ambre. */
+  --background: #f8f0e3;
+  --background-accent: #f1e2c9;
+  --surface: #fffaf2;
+  --foreground: #2c1c10;
+  --accent: #b5651d;
+  --accent-strong: #8a4a17;
+  --border: rgba(60, 36, 16, 0.14);
+  --shadow-color: 28 18 8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Torrefaction foncee : charbon chaud, jamais noir pur ni bleu froid. */
+    --background: #211711;
+    --background-accent: #2a1d15;
+    --surface: #2c1f17;
+    --foreground: #f3e6d6;
+    --accent: #e2954f;
+    --accent-strong: #f0ab6b;
+    --border: rgba(243, 230, 214, 0.12);
+    --shadow-color: 0 0 0;
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  color-scheme: light dark;
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, color-mix(in srgb, var(--accent) 12%, transparent), transparent),
+    var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Bloc de code Java, avec une coloration simple des mots-cles. */
+.java-code-block {
+  background: color-mix(in srgb, var(--foreground) 5%, var(--surface));
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  overflow-x: auto;
+}
+
+.java-code-block code {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+.java-keyword {
+  color: var(--accent-strong);
+  font-weight: 600;
+}
+
+.java-string {
+  color: #4d7a34;
+}
+
+@media (prefers-color-scheme: dark) {
+  .java-string {
+    color: #9ecb7d;
+  }
+}
+
+.java-comment {
+  color: color-mix(in srgb, var(--foreground) 45%, transparent);
+  font-style: italic;
+}
+
+/* Scrollbar discrete pour les blocs de code, coherente avec le theme. */
+.java-code-block::-webkit-scrollbar {
+  height: 0.5rem;
+}
+
+.java-code-block::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--accent) 40%, transparent);
+  border-radius: 999px;
 }

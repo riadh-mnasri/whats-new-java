@@ -1,0 +1,43 @@
+{
+  "metadata": {
+    "title": "What's New in Java",
+    "description": "A browsable catalog of what changed in Java, version by version, from Java 8 to Java 25."
+  },
+  "nav": {
+    "brand": "What's New in Java",
+    "home": "Home"
+  },
+  "home": {
+    "title": "What's New in Java",
+    "subtitle": "A timeline of language changes, from Java 8 all the way to Java 25.",
+    "timelineHint": "Tap a version to explore what's new in it.",
+    "ltsFilterLabel": "LTS only"
+  },
+  "progress": {
+    "label": "{explored, plural, =0 {No version explored yet} other {{explored}/{total} versions explored}}"
+  },
+  "version": {
+    "ltsBadge": "LTS",
+    "releasedOn": "Released on {date}",
+    "viewDetails": "View details",
+    "markExplored": "Mark as explored",
+    "unmarkExplored": "Remove from explored",
+    "exploredBadge": "Explored",
+    "backToTimeline": "Back to timeline",
+    "highlightsTitle": "Main highlights",
+    "previousVersion": "Java {version}",
+    "nextVersion": "Java {version}",
+    "notFoundTitle": "Version not found",
+    "notFoundDescription": "This Java version does not exist in the catalog.",
+    "backHome": "Back home"
+  },
+  "footer": {
+    "copyright": "© {year} Riadh MNASRI",
+    "tagline": "A small personal catalog to keep up with how Java evolves."
+  },
+  "localeSwitcher": {
+    "label": "Language",
+    "fr": "FR",
+    "en": "EN"
+  }
+}

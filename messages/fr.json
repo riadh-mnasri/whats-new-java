@@ -1,0 +1,43 @@
+{
+  "metadata": {
+    "title": "Quoi de neuf en Java",
+    "description": "Le catalogue des nouveautes de Java, version par version, de Java 8 a Java 25."
+  },
+  "nav": {
+    "brand": "Quoi de neuf en Java",
+    "home": "Accueil"
+  },
+  "home": {
+    "title": "Quoi de neuf en Java",
+    "subtitle": "Une frise chronologique des nouveautes du langage, de Java 8 a Java 25.",
+    "timelineHint": "Touchez une version pour explorer ses nouveautes.",
+    "ltsFilterLabel": "LTS uniquement"
+  },
+  "progress": {
+    "label": "{explored, plural, =0 {Aucune version exploree} other {{explored}/{total} versions explorees}}"
+  },
+  "version": {
+    "ltsBadge": "LTS",
+    "releasedOn": "Sortie le {date}",
+    "viewDetails": "Voir le detail",
+    "markExplored": "Marquer comme explore",
+    "unmarkExplored": "Retirer des explorees",
+    "exploredBadge": "Explore",
+    "backToTimeline": "Retour a la frise",
+    "highlightsTitle": "Nouveautes principales",
+    "previousVersion": "Java {version}",
+    "nextVersion": "Java {version}",
+    "notFoundTitle": "Version introuvable",
+    "notFoundDescription": "Cette version de Java n'existe pas dans le catalogue.",
+    "backHome": "Retour a l'accueil"
+  },
+  "footer": {
+    "copyright": "© {year} Riadh MNASRI",
+    "tagline": "Un petit catalogue perso pour suivre l'evolution de Java."
+  },
+  "localeSwitcher": {
+    "label": "Langue",
+    "fr": "FR",
+    "en": "EN"
+  }
+}
